@@ -1,0 +1,138 @@
+{
+  "version": 1,
+  "projects": {
+    "labs": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/labs",
+      "sourceRoot": "apps/labs/src",
+      "prefix": "idc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/labs",
+            "index": "apps/labs/src/index.html",
+            "main": "apps/labs/src/main.ts",
+            "polyfills": "apps/labs/src/polyfills.ts",
+            "tsConfig": "apps/labs/tsconfig.app.json",
+            "aot": false,
+            "assets": ["apps/labs/src/favicon.ico", "apps/labs/src/assets"],
+            "styles": ["apps/labs/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/labs/src/environments/environment.ts",
+                  "with": "apps/labs/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "labs:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "labs:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "labs:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/labs/tsconfig.app.json",
+              "apps/labs/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/labs/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/labs/jest.config.js",
+            "tsConfig": "apps/labs/tsconfig.spec.json",
+            "setupFile": "apps/labs/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "labs-e2e": {
+      "root": "apps/labs-e2e",
+      "sourceRoot": "apps/labs-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/labs-e2e/cypress.json",
+            "tsConfig": "apps/labs-e2e/tsconfig.e2e.json",
+            "devServerTarget": "labs:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "labs:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/labs-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/labs-e2e/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "labs"
+}

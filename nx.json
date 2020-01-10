@@ -1,0 +1,21 @@
+{
+  "npmScope": "idc",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "labs-e2e": {
+      "tags": []
+    },
+    "labs": {
+      "tags": []
+    }
+  }
+}
