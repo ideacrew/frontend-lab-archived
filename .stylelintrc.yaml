@@ -261,13 +261,13 @@ rules:
   selector-max-type: 3
   # Styles for components should never need the universal selector.
   selector-max-universal: 2
-  # Ensure any defined symbols are prefixed with "mdc-"
-  # custom-media-pattern: ^mdc-.+
-  # custom-property-pattern: ^mdc-.+
+  # Ensure any defined symbols are prefixed with "idc-"
+  # custom-media-pattern: ^idc-.+
+  # custom-property-pattern: ^idc-.+
   # selector-class-pattern:
-  #   - ^mdc-.+
+  #   - ^idc-.+
   #   - resolveNestedSelectors: true
-  # selector-id-pattern: ^mdc-.+
+  # selector-id-pattern: ^idc-.+
 
   # Names are more semantic than numbers
   # font-weight-notation: named-where-possible
@@ -300,10 +300,10 @@ rules:
   # SCSS naming patterns, just like our CSS conventions above.
   # (note for $-vars we use a leading underscore for "private" variables)
   scss/dollar-variable-pattern:
-    - ^_?mdc-.+
+    - ^_?idc-.+
     - ignore: local
-  scss/at-function-pattern: ^mdc-.+
-  scss/at-mixin-pattern: ^mdc-.+
+  scss/at-function-pattern: ^idc-.+
+  scss/at-mixin-pattern: ^idc-.+
   # Prevents unneeded nesting selectors
   scss/selector-no-redundant-nesting-selector: true
   # Since leading underscores are not needed, they can be omitted
