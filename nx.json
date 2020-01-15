@@ -22,6 +22,12 @@
     },
     "admin-shell": {
       "tags": []
+    },
+    "admin-e2e": {
+      "tags": []
+    },
+    "admin": {
+      "tags": []
     }
   }
 }
