@@ -1,0 +1,43 @@
+import { TestBed, async } from '@angular/core/testing';
+
+import { Observable } from 'rxjs';
+
+import { provideMockActions } from '@ngrx/effects/testing';
+import { provideMockStore } from '@ngrx/store/testing';
+
+import { NxModule, DataPersistence } from '@nrwl/angular';
+import { hot } from '@nrwl/angular/testing';
+
+import { AdminEffects } from './admin.effects';
+import * as AdminActions from './admin.actions';
+
+describe('AdminEffects', () => {
+  let actions: Observable<any>;
+  let effects: AdminEffects;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [NxModule.forRoot()],
+      providers: [
+        AdminEffects,
+        DataPersistence,
+        provideMockActions(() => actions),
+        provideMockStore()
+      ]
+    });
+
+    effects = TestBed.get(AdminEffects);
+  });
+
+  describe('loadAdmin$', () => {
+    it('should work', () => {
+      actions = hot('-a-|', { a: AdminActions.loadAdmin() });
+
+      const expected = hot('-a-|', {
+        a: AdminActions.loadAdminSuccess({ admin: [] })
+      });
+
+      expect(effects.loadAdmin$).toBeObservable(expected);
+    });
+  });
+});

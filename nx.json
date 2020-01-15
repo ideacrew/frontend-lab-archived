@@ -19,6 +19,9 @@
     },
     "admin-brokers": {
       "tags": []
+    },
+    "admin-shell": {
+      "tags": []
     }
   }
 }

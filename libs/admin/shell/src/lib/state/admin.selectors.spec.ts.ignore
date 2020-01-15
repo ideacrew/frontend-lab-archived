@@ -1,0 +1,62 @@
+import { AdminEntity } from './admin.models';
+import { State, adminAdapter, initialState } from './admin.reducer';
+import * as AdminSelectors from './admin.selectors';
+
+describe('Admin Selectors', () => {
+  const ERROR_MSG = 'No Error Available';
+  const getAdminId = it => it['id'];
+  const createAdminEntity = (id: string, name = '') =>
+    ({
+      id,
+      name: name || `name-${id}`
+    } as AdminEntity);
+
+  let state;
+
+  beforeEach(() => {
+    state = {
+      admin: adminAdapter.addAll(
+        [
+          createAdminEntity('PRODUCT-AAA'),
+          createAdminEntity('PRODUCT-BBB'),
+          createAdminEntity('PRODUCT-CCC')
+        ],
+        {
+          ...initialState,
+          selectedId: 'PRODUCT-BBB',
+          error: ERROR_MSG,
+          loaded: true
+        }
+      )
+    };
+  });
+
+  describe('Admin Selectors', () => {
+    it('getAllAdmin() should return the list of Admin', () => {
+      const results = AdminSelectors.getAllAdmin(state);
+      const selId = getAdminId(results[1]);
+
+      expect(results.length).toBe(3);
+      expect(selId).toBe('PRODUCT-BBB');
+    });
+
+    it('getSelected() should return the selected Entity', () => {
+      const result = AdminSelectors.getSelected(state);
+      const selId = getAdminId(result);
+
+      expect(selId).toBe('PRODUCT-BBB');
+    });
+
+    it("getAdminLoaded() should return the current 'loaded' status", () => {
+      const result = AdminSelectors.getAdminLoaded(state);
+
+      expect(result).toBe(true);
+    });
+
+    it("getAdminError() should return the current 'error' state", () => {
+      const result = AdminSelectors.getAdminError(state);
+
+      expect(result).toBe(ERROR_MSG);
+    });
+  });
+});

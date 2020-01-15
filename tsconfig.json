@@ -21,7 +21,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@idc/admin/brokers": ["libs/admin/brokers/src/index.ts"]
+      "@idc/admin/brokers": ["libs/admin/brokers/src/index.ts"],
+      "@idc/admin/shell": ["libs/admin/shell/src/index.ts"]
     }
   },
   "angularCompilerOptions": {
