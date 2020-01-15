@@ -120,6 +120,37 @@
           }
         }
       }
+    },
+    "admin-brokers": {
+      "projectType": "library",
+      "root": "libs/admin/brokers",
+      "sourceRoot": "libs/admin/brokers/src",
+      "prefix": "idc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/admin/brokers/tsconfig.lib.json",
+              "libs/admin/brokers/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/admin/brokers/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/admin/brokers/jest.config.js",
+            "tsConfig": "libs/admin/brokers/tsconfig.spec.json",
+            "setupFile": "libs/admin/brokers/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

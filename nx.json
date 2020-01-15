@@ -16,6 +16,9 @@
     },
     "labs": {
       "tags": []
+    },
+    "admin-brokers": {
+      "tags": []
     }
   }
 }
