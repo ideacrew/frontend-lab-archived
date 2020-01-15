@@ -8,7 +8,7 @@ describe('brokers page', () => {
   });
 
   it('should display welcome message', () => {
-    cy.contains('brokers-list works!');
     cy.wait('@brokers');
+    cy.contains('Jennifer Pinsker');
   });
 });

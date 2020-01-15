@@ -9,6 +9,14 @@ import { loadBrokers } from '../state/brokers.actions';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BrokersListComponent implements OnInit {
+  public displayedColumns: string[] = [
+    'staffName',
+    'hbxId',
+    'currentStatus',
+    'agency',
+    'writingAgent',
+  ];
+
   constructor(public brokersFacade: BrokersFacade) {}
 
   ngOnInit() {

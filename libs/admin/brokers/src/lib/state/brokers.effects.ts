@@ -20,8 +20,9 @@ export class BrokersEffects {
               hbxId: broker.hbx_id,
               staffName: broker.staff_name,
               currentStatus: broker.current_status,
-              writingAgency: broker.writing_agency,
-              history: broker.history
+              writingAgent: broker.writing_agent,
+              agency: broker.agency,
+              history: broker.history,
             }));
 
             return loadBrokersSuccess({ brokers: formattedBrokers });

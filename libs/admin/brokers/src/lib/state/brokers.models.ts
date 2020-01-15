@@ -8,6 +8,7 @@ export interface BrokersEntity {
   hbxId: string;
   staffName: string;
   currentStatus: string;
-  writingAgency: string;
+  agency: string;
+  writingAgent: string;
   history: BrokerHistory[];
 }

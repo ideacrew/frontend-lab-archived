@@ -1,3 +1,70 @@
-<p>brokers-list works!</p>
 
-{{ brokersFacade.allBrokers$ | async | json }}
+<table cdk-table [dataSource]="brokersFacade.allBrokers$">
+  <!-- Name Column -->
+  <ng-container cdkColumnDef="staffName">
+    <th
+      cdk-header-cell
+      *cdkHeaderCellDef
+    >
+      <div>
+        Staff Name
+      </div>
+    </th>
+    <td cdk-cell *cdkCellDef="let broker">{{ broker.staffName }}</td>
+  </ng-container>
+
+  <!-- ID Column -->
+  <ng-container cdkColumnDef="hbxId">
+    <th
+      cdk-header-cell
+      *cdkHeaderCellDef
+    >
+      <div>
+        HBX ID
+      </div>
+    </th>
+    <td cdk-cell *cdkCellDef="let broker">{{ broker.hbxId }}</td>
+  </ng-container>
+
+  <!-- Current Status Column -->
+  <ng-container cdkColumnDef="currentStatus">
+    <th
+      cdk-header-cell
+      *cdkHeaderCellDef
+    >
+      <div>
+        Current Staus
+      </div>
+    </th>
+    <td cdk-cell *cdkCellDef="let broker">{{ broker.currentStatus }}</td>
+  </ng-container>
+
+  <!-- Writing Agency Column -->
+  <ng-container cdkColumnDef="agency">
+    <th
+      cdk-header-cell
+      *cdkHeaderCellDef
+    >
+      <div>
+        Writing Agency
+      </div>
+    </th>
+    <td cdk-cell *cdkCellDef="let broker">{{ broker.agency }}</td>
+  </ng-container>
+
+  <!-- Agency Column -->
+  <ng-container cdkColumnDef="writingAgent">
+    <th
+      cdk-header-cell
+      *cdkHeaderCellDef
+    >
+      <div>
+        Writing Agent
+      </div>
+    </th>
+    <td cdk-cell *cdkCellDef="let broker">{{ broker.writingAgent }}</td>
+  </ng-container>
+
+  <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
+</table>

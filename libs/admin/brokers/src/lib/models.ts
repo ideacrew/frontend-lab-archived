@@ -3,7 +3,8 @@ export interface BrokerFromAPI {
   hbx_id: string;
   staff_name: string;
   current_status: string;
-  writing_agency: string;
+  writing_agent: string;
+  agency: string;
   history: BrokerHistory[];
 }
 
