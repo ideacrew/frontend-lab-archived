@@ -15,15 +15,17 @@ export class BrokersEffects {
       switchMap(() =>
         this.brokersApiService.getBrokersList().pipe(
           map((brokers: BrokerFromAPI[]) => {
-            const formattedBrokers: BrokersEntity[] = brokers.map(broker => ({
-              id: broker._id,
-              hbxId: broker.hbx_id,
-              staffName: broker.staff_name,
-              currentStatus: broker.current_status,
-              writingAgent: broker.writing_agent,
-              agency: broker.agency,
-              history: broker.history,
-            }));
+            const formattedBrokers: BrokersEntity[] = brokers.map(
+              (broker: BrokerFromAPI) => ({
+                id: broker._id,
+                hbxId: broker.hbx_id,
+                staffName: broker.staff_name,
+                currentStatus: broker.current_status,
+                writingAgent: broker.writing_agent,
+                agency: broker.agency,
+                history: broker.history,
+              })
+            );
 
             return loadBrokersSuccess({ brokers: formattedBrokers });
           })
