@@ -5,7 +5,7 @@ import { select, Store, Action } from '@ngrx/store';
 import * as fromAdmin from './admin.reducer';
 import * as AdminSelectors from './admin.selectors';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AdminFacade {
   loaded$ = this.store.pipe(select(AdminSelectors.getAdminLoaded));
   allAdmin$ = this.store.pipe(select(AdminSelectors.getAllAdmin));

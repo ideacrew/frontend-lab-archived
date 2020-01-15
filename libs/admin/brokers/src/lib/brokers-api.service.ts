@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+import { BrokerFromAPI } from './models';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BrokersApiService {
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
+  getBrokersList(): Observable<BrokerFromAPI[]> {
+    return this.http.get<BrokerFromAPI[]>('/api/brokers');
+  }
 }

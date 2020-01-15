@@ -6,6 +6,7 @@
     "ng": "ng",
     "nx": "nx",
     "start": "ng serve",
+    "start:admin": "ng serve --project=admin",
     "build": "ng build",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint && stylelint \"**/*.scss\" --fix",
@@ -30,8 +31,8 @@
   },
   "private": true,
   "dependencies": {
-    "@nrwl/angular": "8.11.0",
     "@angular/animations": "^8.2.0",
+    "@angular/cdk": "^8.2.3",
     "@angular/common": "^8.2.0",
     "@angular/compiler": "^8.2.0",
     "@angular/core": "^8.2.0",
@@ -39,13 +40,14 @@
     "@angular/platform-browser": "^8.2.0",
     "@angular/platform-browser-dynamic": "^8.2.0",
     "@angular/router": "^8.2.0",
-    "core-js": "^2.5.4",
-    "rxjs": "~6.5.4",
-    "zone.js": "^0.9.1",
-    "@ngrx/store": "8.5.0",
     "@ngrx/effects": "8.5.0",
     "@ngrx/entity": "8.5.0",
-    "@ngrx/router-store": "8.5.0"
+    "@ngrx/router-store": "8.5.0",
+    "@ngrx/store": "8.5.0",
+    "@nrwl/angular": "8.11.0",
+    "core-js": "^2.5.4",
+    "rxjs": "~6.5.4",
+    "zone.js": "^0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.14",

@@ -1,13 +1,14 @@
-import { getGreeting } from '../support/app.po';
+import { brokers } from '../support/brokers';
 
-describe('admin', () => {
-  beforeEach(() => cy.visit('/'));
+describe('brokers page', () => {
+  beforeEach(() => {
+    cy.server();
+    cy.route('GET', '**/brokers', brokers).as('brokers');
+    cy.visit('/brokers');
+  });
 
   it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
-
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to admin!');
+    cy.contains('brokers-list works!');
+    cy.wait('@brokers');
   });
 });
