@@ -9,7 +9,7 @@
     "start:admin": "ng serve --project=admin",
     "build": "ng build",
     "test": "ng test",
-    "lint": "nx workspace-lint && ng lint && stylelint \"**/*.scss\" --fix",
+    "lint": "nx workspace-lint && ng lint && stylelint \"**/*.scss\"",
     "e2e": "ng e2e",
     "e2e:admin": "ng e2e --project=admin-e2e --watch",
     "affected:apps": "nx affected:apps",
