@@ -22,7 +22,8 @@
     "baseUrl": ".",
     "paths": {
       "@idc/admin/brokers": ["libs/admin/brokers/src/index.ts"],
-      "@idc/admin/shell": ["libs/admin/shell/src/index.ts"]
+      "@idc/admin/shell": ["libs/admin/shell/src/index.ts"],
+      "@idc/shared/utils": ["libs/shared/utils/src/index.ts"]
     }
   },
   "angularCompilerOptions": {

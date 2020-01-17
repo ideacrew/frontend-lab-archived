@@ -28,6 +28,9 @@
     },
     "admin": {
       "tags": []
+    },
+    "shared-utils": {
+      "tags": []
     }
   }
 }

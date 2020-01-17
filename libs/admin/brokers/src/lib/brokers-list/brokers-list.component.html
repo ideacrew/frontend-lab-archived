@@ -1,5 +1,8 @@
 
-<table cdk-table [dataSource]="brokersFacade.allBrokers$">
+
+<input type="text" [formControl]="searchFormControl">
+
+<table cdk-table [dataSource]="dataSource$">
   <!-- Name Column -->
   <ng-container cdkColumnDef="staffName">
     <th

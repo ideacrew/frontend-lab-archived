@@ -5,7 +5,7 @@ export const brokers = [
     staff_name: 'Jennifer Pinsker',
     current_status: 'Pending',
     agency: 'XYZ Agency',
-    writing_agency: 'Broker Bob',
+    writing_agent: 'Broker Bob',
     history: [
       {
         date: '2020-01-14T00:00:00.000+00:00',
@@ -17,9 +17,9 @@ export const brokers = [
     _id: '5e1e4f39411f1df5de3b4df2',
     hbx_id: '10000019',
     staff_name: 'Jennifer Pinsker',
-    current_current_status: 'Linked',
+    current_status: 'Linked',
     agency: 'XYZ Agency',
-    writing_agency: 'Broker Dan',
+    writing_agent: 'Broker Dan',
     history: [
       {
         date: '2020-01-14T00:00:00.000+00:00',
@@ -37,7 +37,7 @@ export const brokers = [
     staff_name: 'Jennifer Pinsker',
     current_status: 'Linked',
     agency: 'XYZ Agency',
-    writing_agency: 'Broker Joe',
+    writing_agent: 'Broker Joe',
     history: [
       {
         date: '2020-01-13T21:34:00.000+00:00',
@@ -55,7 +55,8 @@ export const brokers = [
     staff_name: 'Mary Pins',
     current_status: 'Pending',
     agency: 'IJK Insure Agency',
-    writing_agency: 'Broker Janet',
+    writing_agent: 'Broker Janet',
+    history: [],
   },
   {
     _id: '5e1e4f39411f1df5de3b4df5',
@@ -63,6 +64,7 @@ export const brokers = [
     staff_name: 'John Smith',
     current_status: 'Linked',
     agency: 'Acme Insure Agency',
-    writing_agency: 'Broker Boo',
+    writing_agent: 'Broker Boo',
+    history: [],
   },
 ];

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CdkTableModule } from '@angular/cdk/table';
 import { StoreModule } from '@ngrx/store';
@@ -21,6 +22,7 @@ import { BrokersListComponent } from './brokers-list/brokers-list.component';
     ),
     CdkTableModule,
     EffectsModule.forFeature([BrokersEffects]),
+    ReactiveFormsModule,
   ],
   declarations: [BrokersListComponent],
 })
