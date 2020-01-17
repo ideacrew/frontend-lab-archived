@@ -14,23 +14,23 @@ jobs:
       - uses: actions/setup-node@v1.1.0
         with:
           node-version: '10.x'
-      - name: Cache node modules
-        uses: actions/cache@v1.1.0
-        id: cache
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node10-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node10-
+      # - name: Cache node modules
+      #   uses: actions/cache@v1.1.0
+      #   id: cache
+      #   with:
+      #     path: node_modules
+      #     key: ${{ runner.os }}-node10-${{ hashFiles('**/package-lock.json') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-node10-
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
+        # if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Test
         run: npm run test
       - name: Lint
         run: npm run lint
       - name: e2e
-        run: npm run e2e
+        run: npm run e2e -- --headless=true
       - name: build
         run: npm run build
 
